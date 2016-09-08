@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=startup-xkb
+GenericName=startup-xkb
+Comment=Change xkb configuration at startup
+Exec=/home/ben/.xkb/bin/nuc-kinesis
+Terminal=False
+Type=Application
+X-GNOME-Autostart-enabled=true
