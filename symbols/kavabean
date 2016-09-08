@@ -59,7 +59,7 @@ xkb_symbols "mycarbon2" {
     // second entry is identical.  
 
     key <LWIN> { [ Alt_L, Meta_L ] };
-    key <PRSC> { type[Group1]="TWO_LEVEL", [ Alt_R, Meta_R] };
+    key <PRSC> { type[Group1]="TWO_LEVEL", [ Alt_L, Meta_L] };
     key <RCTL> { [ Alt_R, Meta_R ] };
     modifier_map Mod1 { <LWIN>, <PRSC> };
 
