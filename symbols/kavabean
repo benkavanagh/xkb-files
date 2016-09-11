@@ -1,16 +1,13 @@
 
+// Kinesis
 hidden partial modifier_keys
 xkb_symbols "nuc-kinesis" {
     replace key <CAPS> { [ ISO_Next_Group, Caps_Lock ] };
 };
 
-hidden partial modifier_keys
-xkb_symbols "mycarbon" {
-    replace key <CAPS> { [ ISO_Next_Group, Caps_Lock ] };
-};
 
 hidden partial modifier_keys
-xkb_symbols "mycarbon3" {
+xkb_symbols "mycarbon-test" {
     // replace key <CAPS> { [ ISO_Next_Group, ISO_Next_Group, Caps_Lock, Caps_Lock ] };  // this works
     // replace key <CAPS> { [ Escape ] };   // this works
     // replace key <CAPS> { [ Escape, Caps_Lock ] };   // this fails. 
@@ -29,7 +26,74 @@ xkb_symbols "mycarbon3" {
     // modifier_map Lock { <HYPR> };
 };
 
-// Thinkpad 
+
+partial alphanumeric_keys
+xkb_symbols "my-mac" {
+
+    include "us(basic)"
+    name[Group1]= "English (Macintosh)";
+    key.type[group1]="FOUR_LEVEL";
+
+    // Slightly improvised from http://homepage.mac.com/thgewecke/kblayout.jpg
+    key <LSGT> { [   section,  plusminus,       section,        plusminus ] };
+    key <TLDE> { [     grave, asciitilde,    dead_grave,        dead_horn ] };
+    key <AE01> { [	   1,     exclam,    exclamdown,            U2044 ] };
+    key <AE02> { [	   2,         at,     trademark,         EuroSign ] };
+    key <AE03> { [	   3, numbersign,      sterling,            U2039 ] };
+    key <AE04> { [	   4,     dollar,          cent,            U203A ] };
+    key <AE05> { [	   5,    percent,      infinity,            UFB01 ] };
+    key <AE06> { [         6,asciicircum,       section,            UFB02 ] };
+    key <AE07> { [	   7,  ampersand,     paragraph,     doubledagger ] };
+    key <AE08> { [	   8,   asterisk, enfilledcircbullet,      degree ] };
+    key <AE09> { [	   9,  parenleft,   ordfeminine,   periodcentered ] };
+    key <AE10> { [	   0, parenright,     masculine,singlelowquotemark] };
+    key <AE11> { [     minus, underscore,        endash,           emdash ] };
+    key <AE12> { [     equal,       plus,      notequal,        plusminus ] };
+
+    key <AD01> { [	   q,          Q,            oe,               OE ] };
+    key <AD02> { [	   w,          W,         U2211,doublelowquotemark] };
+    key <AD03> { [	   e,          E,    dead_acute,            acute ] };
+    key <AD04> { [	   r,          R,    registered,            U2030 ] };
+    key <AD05> { [	   t,          T,        dagger,       dead_caron ] };
+    key <AD06> { [	   y,          Y,           yen,       onequarter ] };
+    key <AD07> { [	   u,        U,  dead_diaeresis,        diaeresis ] };
+    key <AD08> { [	   i,        I, dead_circumflex,            U02C6 ] };
+    key <AD09> { [	   o,          O,        oslash,         Ooblique ] };
+    key <AD10> { [	   p,          P,      Greek_pi,            U220F ] };
+    key <AD11> { [ bracketleft,  braceleft, leftdoublequotemark, rightdoublequotemark ] };
+    key <AD12> { [bracketright, braceright, leftsinglequotemark, rightsinglequotemark ] };
+    key <BKSL> { [ backslash,        bar, guillemotleft,   guillemotright ] };
+
+    key <AC01> { [	   a,          A,         aring,            Aring ] };
+    key <AC02> { [	   s,          S,        ssharp,      dead_stroke ] };
+    key <AC03> { [	   d,          D, partialderivative,          eth ] };
+    key <AC04> { [	   f,          F,      function,        dead_hook ] };
+    key <AC05> { [	   g,          G,     copyright, dead_doubleacute ] };
+    key <AC06> { [	   h,          H, dead_abovedot,    dead_belowdot ] };
+    key <AC07> { [	   j,          J,         U2206,          onehalf ] };
+    key <AC08> { [	   k,          K,dead_abovering,            UF8FF ] };
+
+    key <AC09> { [	   l,          L,       notsign,            THORN ] };
+    key <AC10> { [ semicolon,      colon,         U2026,            thorn ] };
+    key <AC11> { [apostrophe,   quotedbl,            ae,               AE ] };
+
+    key <AB01> { [	   z,          Z,   Greek_OMEGA,     dead_cedilla ] };
+    key <AB02> { [	   x,          X,         U2248,      dead_ogonek ] };
+				// unclear whether "approxeq" is 2248 or 2245
+    key <AB03> { [	   c,          C,      ccedilla,         Ccedilla ] };
+    key <AB04> { [	   v,          V,    squareroot,            U25CA ] };
+    key <AB05> { [	   b,          B,      integral,         idotless ] };
+    key <AB06> { [	   n,          N,    dead_tilde,            U02DC ] };
+    key <AB07> { [	   m,          M,            mu,    threequarters ] };
+    key <AB08> { [     comma,       less, lessthanequal,      dead_macron ] };
+    key <AB09> { [    period,    greater, greaterthanequal,    dead_breve ] };
+    key <AB10> { [     slash,   question,      division,     questiondown ] };
+
+};
+
+
+
+// Thinkpad Modifier Setup
 //  1.  Alt_R -->  Ctrl_R
 //  2.  Prt -->  Alt_R
 //  3.  Ctrl_R --> W_Command_R i.e. Super_R
@@ -41,38 +105,57 @@ xkb_symbols "mycarbon3" {
 
 // Ctrl is mapped to the Alt keys, Alt to the Win keys, and Win to the Ctrl keys.
 hidden partial modifier_keys
-xkb_symbols "mycarbon2" {
-    // Caps Lock becomes Escape, with Caps Lock reachable with Shift if necessary
+xkb_symbols "mycarbon-mod" {
+    // CAPS LOCK: Caps Lock becomes Escape, with Caps Lock reachable with Shift if necessary
     key <CAPS> {
         type[Group1] = "FOUR_LEVEL",
-        symbols[Group1] = [ Escape, ISO_Next_Group, Caps_Lock, Caps_Lock ],
-        actions[Group1] = [ NoAction(), LockGroup(group=+1), LockMods(modifiers=Lock), LockMods(modifiers=Lock) ]
+        symbols[Group1] = [ Control_L, ISO_Next_Group, Caps_Lock, Caps_Lock ],
+        actions[Group1] = [ SetMods(modifiers=Control), LockGroup(group=+1), LockMods(modifiers=Lock), LockMods(modifiers=Lock) ]
     };
-    // Do I need this modifier map here? 
-    // modifier_map Lock { Caps_Lock };
 
-    key <LALT> { [ Control_L, Control_L  ] };
+    key <LCTL> { [ Control_L ] };
     key <RALT> { type[Group1] = "TWO_LEVEL",
-                 symbols[Group1] = [ Control_R, Control_R ]
+                 symbols[Group1] = [ Control_R, Control_R ] };
+                 
+    key <LWIN> { [ Super_L] };
+
+    key <LALT> { [ Alt_L, Meta_L  ] };
+    key <PRSC> { [ Alt_L, Meta_L ] };
+    // Turn Right Control into AltGr
+    key <RCTL> {
+         type[Group1] = "ONE_LEVEL",
+         symbols[Group1] = [ ISO_Level3_Shift ]
+
     };
-    modifier_map Control { <RALT>, <LALT> };
-    // second entry is identical.  
+    modifier_map Control { <LCTL>, <RALT>, Control_L };
+    modifier_map Mod1 { <LALT>, <PRSC> };
+    modifier_map Mod4 { <LWIN> };
+    modifier_map Mod5 { ISO_Level3_Shift };
 
-    key <LWIN> { [ Alt_L, Meta_L ] };
-    key <PRSC> { type[Group1]="TWO_LEVEL", [ Alt_R, Meta_R] };
-    key <RCTL> { [ Alt_R, Meta_R ] };
-    modifier_map Mod1 { <LWIN>, <PRSC> };
 
-    key <LCTL> { [ Super_L ] };
-    modifier_map Mod4 { <LCTL>};
+    // replace key <LALT> { [ Control_L, Control_L  ] };
+    // replace key <RALT> { type[Group1] = "TWO_LEVEL",                     // ALT L/R:  Turn these into Control functions. 
+    //               symbols[Group1] = [ Control_R, Control_R ],      // key <LALT> { [ Control_L ] };
+    //               actions[Group1] = [ SetMods(modifier=Control), SetMods(modifier=Control) ]
+    // };
+    //
+    //   modifier_map Control { <RALT>, <LALT> };                     // LWIN/PRSC --> ALT 
+
+    // Turn Left Win and PRSC into Alt
+    // key <LWIN> { [ Alt_L, Meta_L ] };
+    // key <PRSC> { [ Alt_L, Meta_L ] };
+    // modifier_map Mod1 { <LWIN>, <PRSC> };
 
     // Turn Right Control into AltGr
-    replace key <RCTL> {
-        type[Group1] = "ONE_LEVEL",
-        symbols[Group1] = [ ISO_Level3_Shift ]
-    };
+    // replace key <RCTL> {
+    //     type[Group1] = "ONE_LEVEL",
+    //     symbols[Group1] = [ Alt_R ]
+    // };
 
-    include "level3(modifier_mapping)"
+    // replace key <LCTL> { [ Super_L ] };
+    // modifier_map Mod4 { <LCTL> };
+
+    // include "level3(modifier_mapping)"
     
     // If I never end up using RCTL (small, hard for pinky to find) then turn it into AltGr
     // If I want to get to my next layout to type £ I can just use Shift+Capslock. 
