@@ -29,18 +29,18 @@ I decided on my final customisation strategy after reading this
 
 The directories contain the following
 
-1.  applications
-    This directory contains example application files to be put in .config/autostart
+* *applications*
+   contains example application files to be put in .config/autostart
 
-2. bin
+* *bin*
    contains shell commands that the desktop applications use to compile and install the keyboard map. 
 
-3. keymaps
-   These contain the keymaps for customised keyboard settings.  These are created by editing original keymap
+* *keymaps*
+   contains the keymaps for customised keyboard settings.  These are created by editing original keymap
    found from "setxkbmap -print" to add customised symbol definitions
 
-4. symbols
-   These files contain the key remapping symbol definitions that are the critical part of the configuration. 
+* *symbols*
+   contains the key remapping symbol definitions that are the critical part of the configuration. 
 
 
 # Autostart
