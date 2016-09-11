@@ -1,5 +1,7 @@
 # Summary 
-These are my xkb customisations. 
+These are my xkb customisations. I have this checked out into my ~/.xkb directory. The customisations
+in this project, along with an autostart desktop application in .config/autostart configure my keyboards
+on my various computers. 
 
 # Sources
 The material here was derived from a number of great sources.
