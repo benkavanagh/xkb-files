@@ -27,7 +27,7 @@ I decided on my final customisation strategy after reading this
 
 # Contents of directories
 
-The directories contain the following
+The sub-directories are described below
 
 * **applications**
 
