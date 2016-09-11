@@ -50,6 +50,8 @@ The sub-directories are described below
 # Autostart
 
 To configure keyboard on startup (Gnome, Linux) I add an application to .config/autostart
+which is a copy of the example application in the applications directory, possibly with a modified
+executable which points to the right keymap for the system in question. 
 
 I decided that this was the best strategy based on these sources
 
