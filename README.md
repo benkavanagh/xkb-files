@@ -28,6 +28,7 @@ I decided on my final customisation strategy after reading this
 # Contents of directories
 
 The directories contain the following
+
 1.  applications
     This directory contains example application files to be put in .config/autostart
 
@@ -44,7 +45,9 @@ The directories contain the following
 
 # Autostart
 
-Autostarting keyboard changes on login
+To configure keyboard on startup (Gnome, Linux) I add an application to .config/autostart
 
-https://wiki.archlinux.org/index.php/Desktop_entries#Autostart
-https://ask.fedoraproject.org/en/question/59485/fedora-21-doesnt-come-with-gnome-session-properties/
+I decided that this was the best strategy based on these sources
+
+* https://wiki.archlinux.org/index.php/Desktop_entries#Autostart
+* https://ask.fedoraproject.org/en/question/59485/fedora-21-doesnt-come-with-gnome-session-properties/
